@@ -7,6 +7,7 @@ html, body {
 a {
   color: #0000FF;
   img { border: none; }
+  text-decoration: none;
 }
 
 .clear {
@@ -22,6 +23,14 @@ a {
   padding: 20px 40px;
   border: solid 1px black;
   margin-top: 20px;
+}
+
+.post {
+  margin-bottom: 30px;
+}
+
+.content {
+  margin-top: 40px;
 }
 
 #flash_notice {
@@ -86,4 +95,7 @@ p#meta {
 
 #user_header {
   float: right;
+  li {
+    display: inline;
+  }
 }
