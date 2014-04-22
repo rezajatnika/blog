@@ -2,11 +2,11 @@
 <div class="content">
   <% @articles.order(created_at: :desc).each do |article| %>
     <h2><%= link_to article.title, article %></h2>
-    <span id="meta">Posted on <%= article.created_at.strftime("%b %d, %Y %T") %></span>
+    <p id="meta">Posted on <%= article.created_at.strftime("%b %d, %Y %T") %></p>
     <div class="post">
-      <p><%= article.content %></p>
+      <%= markdown excerpt(article.content, ' ', radius: 250) %>
+      <p id="meta"><%= link_to "Continue reading »", article %></p>
     </div>
   <% end %>
-  <hr />
-  <%= link_to "Create New Article", new_article_path %>
+  <p><%= link_to "Create New Article", new_article_path %></p>
 </div>

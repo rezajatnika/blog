@@ -14,12 +14,11 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :content, "Content" %><br />
+    <%= f.label :content, "Content (Markdown)" %><br />
     <%= f.text_area :content %>
   </div>
   <div class="actions">
     <%= f.submit "Submit" %><br />
   </div>
 <% end %>
-<hr />
 <%= link_to "Cancel", articles_path %> and back to article list.

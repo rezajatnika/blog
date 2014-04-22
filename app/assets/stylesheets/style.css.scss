@@ -66,11 +66,19 @@ form .field, form .actions {
 }
 
 textarea {
-  width: 500px;
+  margin-top: 5px;
+  width: 600px;
   height: 250px;
+  font-family: monospace;
+  font-size: 14px;
 }
 
-span#meta {
+input#article_title {
+  width: 600px;
+  font-size: 14px;
+}
+
+p#meta {
   font-family: monospace;
   font-size: 12px;
   font-style: italic;
