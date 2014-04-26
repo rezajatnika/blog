@@ -87,6 +87,11 @@ input#article_title {
   font-size: 14px;
 }
 
+input#user_email, input#user_password, input#user_password_confirmation, input#email, input#password {
+  width: 300px;
+  font-size: 14px;
+}
+
 p#meta {
   font-family: monospace;
   font-size: 12px;

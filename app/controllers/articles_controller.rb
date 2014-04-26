@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_filter :authorize, only: [:edit, :update, :destroy, :new]
   # new_article POST /articles(.:format)
   def new
     @article = Article.new

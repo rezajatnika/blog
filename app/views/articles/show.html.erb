@@ -4,7 +4,11 @@
     <p id="meta">Posted on <%= @article.created_at.strftime("%b %d, %Y") %></p>
     <%= markdown @article.content %>
   </div>
-  <%= link_to "Articles", root_path %> |
-  <%= link_to "Edit", edit_article_path %> |
-  <%= link_to "Delete", article_path, method: :delete, data: { confirm: "Are you sure?" } %>
+  <% if current_user %>
+    <%= link_to "Articles", root_path %> |
+    <%= link_to "Edit", edit_article_path %> |
+    <%= link_to "Delete", article_path, method: :delete, data: { confirm: "Are you sure?" } %>
+  <% else %>
+     <%= link_to "Articles", root_path %>
+  <% end %>
 </div>

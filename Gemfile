@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'redcarpet'
+gem 'bcrypt-ruby'
 
 # Rails doc
 group :doc do
