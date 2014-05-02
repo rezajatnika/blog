@@ -31,5 +31,7 @@ end
 # Production gems
 group :production do
   gem 'rails_12factor'
-  gem 'unicorn'
+  # gem 'unicorn'
+  # gem 'thin'
+  gem 'puma'
 end
