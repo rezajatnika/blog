@@ -14,6 +14,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'redcarpet'
 gem 'bcrypt-ruby'
+# gem 'capistrano'
+# gem 'rvm-capistrano'
+# gem 'capistrano-rails', '~> 1.1.0'
 
 # Rails doc
 group :doc do
@@ -31,7 +34,7 @@ end
 # Production gems
 group :production do
   gem 'rails_12factor'
-  # gem 'unicorn'
-  # gem 'thin'
-  gem 'puma'
+  gem 'unicorn'
+  #gem 'thin'
+  #gem 'puma'
 end
