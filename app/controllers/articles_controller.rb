@@ -8,13 +8,13 @@ class ArticlesController < ApplicationController
   # article GET /articles/:id(.:format)
   def show
     # Find the article id
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   # edit_article GET /articles/:id/edit(.:format)
   def edit
     # Find the article id
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   # articles GET /articles(.:format)
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
     # render plain: params[:article].inspect
 
     # Saving article to database
-    @article = Article.new(article_params)
+    @article = current_user.articles.build(article_params)
     if @article.save
       redirect_to @article, notice: "Article has been created."
     else
@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
 
   # article PUT /articles/:id(.:format)
   def update
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     if @article.update(article_params)
       redirect_to @article, notice: "Article has been updated."
     else
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
 
   # article DELETE /articles/:id(.:format)
   def destroy
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     @article.destroy
     redirect_to root_path, notice: "Article has been deleted."
   end

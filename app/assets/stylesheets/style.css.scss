@@ -70,8 +70,15 @@ a {
   display: inline;
 }
 
-form .field, form .actions {
+form .field {
   margin: 12px 0;
+}
+
+form .actions {
+  margin: 12px 0;
+  input#button {
+    width: auto;
+  }
 }
 
 textarea {
@@ -87,7 +94,7 @@ input#article_title {
   font-size: 14px;
 }
 
-input#user_email, input#user_password, input#user_password_confirmation, input#email, input#password {
+input {
   width: 300px;
   font-size: 14px;
 }

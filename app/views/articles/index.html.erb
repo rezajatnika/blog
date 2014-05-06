@@ -2,7 +2,9 @@
 <div class="content">
   <% @articles.order(created_at: :desc).each do |article| %>
     <h2><%= link_to article.title, article %></h2>
-    <p id="meta">Posted on <%= article.created_at.strftime("%b %d, %Y") %></p>
+    <p id="meta">
+      Posted on <%= article.created_at.strftime("%b %d, %Y") %> by <%= article.user.email %>
+    </p>
     <div class="post">
       <%= markdown article.content %>
     </div>

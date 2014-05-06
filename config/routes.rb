@@ -7,11 +7,9 @@ Rails.application.routes.draw do
   root 'articles#index'
 
   # Article resources for Article CRUD operations
+  resources :users
   resources :articles
 
-  # User resources
-  resources :users
-
   # Session resources
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
 end
