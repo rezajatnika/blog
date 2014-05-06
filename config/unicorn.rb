@@ -1,17 +1,27 @@
-# config/unicorn.rb
+app_path = "/home/ligavoters/justatest.com/production/current"
 
-root = "/home/reza/apps/blog/current"
-working_directory root
-pid "#{root}/tmp/pids/unicorn.pid"
-stderr_path "#{root}/log/unicorn.log"
-stdout_path "#{root}/log/unicorn.log"
+worker_processes   1
+preload_app        true
+timeout            180
+listen             '127.0.0.1:9022'
+user               'ligavoters', 'ligavoters'
+working_directory  app_path
+pid                "#{app_path}/tmp/pids/unicorn.pid"
+stderr_path        "log/unicorn.log"
+stdout_path        "log/unicorn.log"
 
-listen "/tmp/unicorn.blog.sock"
-worker_processes 2
-timeout 30
+before_fork do |server, worker|
+  ActiveRecord::Base.conection.disconnect!
+  if File.exist?(old_pid) && server.pid != old_pid
+    begin
+      Process.kill("QUIT", File.read(old_pid).to_i)
+    rescue
+      Errno::ENOENT, Errno::ESRCH
+      # ...
+    end
+  end
+end
 
-# Force the bundler gemfile environment variable to
-# reference the capistrano "current" symlink
-before_exec do |_|
-  ENV["BUNDLE_GEMFILE"] = File.join(root, 'Gemfile')
+after_fork do |server, worker|
+  ActiveRecord::Base.establish_connection
 end
